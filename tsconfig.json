@@ -18,6 +18,8 @@
     "importHelpers": true,
     "target": "es2020",
     "module": "es2020",
+
+  
     //changed for tslib
     "paths": {
       "tslib" : ["path/to/node_modules/tslib/tslib.d.ts"]

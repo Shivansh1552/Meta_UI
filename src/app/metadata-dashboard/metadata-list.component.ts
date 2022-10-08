@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
+import { data } from "jquery";
 import { Subscription } from "rxjs";
-import { IMetadata } from "./metadata";
-import { MetadataService } from "./metadata.service";
+import { IMetadata } from "../metadata";
+
+import { MetadataService } from "../metadata.service";
 
 @Component({
   templateUrl: './metadata-list.component.html',
@@ -13,6 +15,7 @@ export class MetadataListComponent implements OnInit, OnDestroy {
   sub!: Subscription;
 
   private _listFilter = '';
+ 
   get listFilter(): string {
     return this._listFilter;
   }
@@ -24,17 +27,21 @@ export class MetadataListComponent implements OnInit, OnDestroy {
   filteredMetadata: IMetadata[] = [];
   metadata: IMetadata[] = [];
 
-  constructor(private metadataService: MetadataService) {}
+  constructor(private metaService: MetadataService) {}
+  // ngOnInit(): void {
+  //   throw new Error("Method not implemented.");
+  // }
+  
 
-  performFilter(filterBy: string): IMetadata[] {
+  performFilter(filterBy: string): any {
     filterBy = filterBy.toLocaleLowerCase();
     return this.metadata.filter((metadata: IMetadata) =>
-      metadata.metadataName.toLocaleLowerCase().includes(filterBy));
+      metadata.metadata.ipackName.toLocaleLowerCase().includes(filterBy));
   }
 
 
   ngOnInit(): void {
-    this.sub = this.metadataService.getAllMetadata().subscribe({
+    this.sub = this.metaService.getAllMetadata().subscribe({
       next: metadata => {
         this.metadata = metadata;
         this.filteredMetadata = this.metadata;
@@ -42,7 +49,7 @@ export class MetadataListComponent implements OnInit, OnDestroy {
       error: err => this.errorMessage = err
     });
   }
-
+  
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
@@ -50,4 +57,9 @@ export class MetadataListComponent implements OnInit, OnDestroy {
   onRatingClicked(message: string): void {
     this.pageTitle = 'Product List: ' + message;
   }
+  deleteData(id:any)
+  {
+    this.metaService.deleteData(id).subscribe(data => {
+      console.log("Deleted........");})
+ }
 }

@@ -27,15 +27,17 @@
         <tbody>
           <tr *ngFor='let metadata of filteredMetadata'>
             <td>
-              <!-- <a [routerLink]="['/metadata', metadata.metadataID]"> -->
+              <a [routerLink]="['/metadata', metadata.id]">
+               
                 <a style="list-style-type:none;">
-                {{metadata.metadataName }} 
+                {{metadata.metadata.metadataName }} 
                 <div style="float:right ;"> 
                   <button type="button" class="btn btn-success btn-space" > Edit </button> 
-                  <button type="button" class="btn btn-success btn-space"> Delete </button>
+                  <button (click)="deleteData(metadata.metadata.id)" onClick="window.location.reload();" class="btn btn-success btn-space" routerLinkActive='active' routerLink='/metadata'> Delete </button>
                   <button type="button" class="btn btn-success btn-space"> Post </button>
                 </div>
               </a>
+            </a>
             </td>
           </tr>
         </tbody>
