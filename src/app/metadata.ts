@@ -9,4 +9,14 @@ export interface metadataBody {
    metadataName: string;
    ipackName: string ;
    version: number;
+   section: Section
+}
+
+// export interface SectionsModel{
+//     steps : StepsConfig[];
+// }
+export interface Section{
+    description: string;
+    name : string;
+    title : string;
 }

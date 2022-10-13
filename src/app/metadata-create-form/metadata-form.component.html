@@ -50,12 +50,48 @@
         </div>
       <br>
       
+      
+      
+        <!-- <div class="d-flex justify-content-between">
+          <div><label for="name">Name</label></div>
+          <div style="width:50% ;"><input type="text" class="form-control" id="name" required ngModel placeholder="Enter Name"  name="name"></div>
+        </div>
+        <br>
+          <div class="d-flex justify-content-between">
+          <div><label for="title">Title</label></div>
+          <div style="width:50% ;"><input type="text" class="form-control" id="title" required ngModel placeholder="Enter Title"  name="title"></div>
+          </div>
+        <br>
+        <div class="form-group d-flex justify-content-between">
+          <div><label for="descrition">Description</label></div>
+          <div  style ="width : 50%;"><input type="text" class="form-control" id="desc" required ngModel  placeholder="Enter Description" name="desc"></div>
+        </div>
+        <br> -->
+
+
+
 
      <!-- <div class="form-group form-check">
       <input type="checkbox" class="form-check-input" id="exampleCheck1">
       <label class="form-check-label" for="exampleCheck1">Checkbox</label>
     </div>  -->
 
+    
+
+    <fieldset ngModelGroup = "sections">
+      <div class="d-flex justify-content-between" >
+      <label >Sections </label>
+      <div><button type="button" class="btn btn-success" id = "addStep">Add</button></div>
+      </div>
+<br>
+
+  <app-steps >
+  
+  </app-steps>
+
+</fieldset>
+
+<br>
     <div class = "ETF_Sec">
     </div>
     <div class="d-flex justify-content-center">
@@ -70,6 +106,7 @@
   </div> 
   </div>
   </form>
+
   <button (click)="get()" class="btn btn-primary">Get</button>
   
-  </div>
+</div>

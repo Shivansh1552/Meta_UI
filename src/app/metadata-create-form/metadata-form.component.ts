@@ -7,6 +7,7 @@ import { v4 as uuid } from 'uuid';
 
 
 @Component({
+  selector: 'app-metadata-form',
   templateUrl: './metadata-form.component.html',
   styleUrls: ['./metadata-form.component.css']
 })
@@ -29,7 +30,7 @@ export class MetadataFormComponent {
    
   // this.metadata = new IMetadata();
   console.log(obj);
-  
+
  }
  
  onSubmit(myForm: any) {
@@ -43,10 +44,19 @@ export class MetadataFormComponent {
             //id: parseInt('uuid()',10),
             metadataName: myForm.metadataName,
             ipackName: myForm.ipackName,
-            version: myForm.version
+            version: myForm.version,
+            
+            section:
+            {
+              description:myForm.desc,
+              name : myForm.name,
+              title :myForm.title
+             }
+            }
          }
-    }
+    
    this.save(obj);
+  
  }
 
   // save(id:any,obj: any) {

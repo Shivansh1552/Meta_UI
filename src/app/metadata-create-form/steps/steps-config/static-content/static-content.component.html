@@ -1,0 +1,55 @@
+<!-- <p>static-content works!</p> -->
+<form class="form-group">
+    <fieldset ngModelGroup = "config">
+        <div class="d-flex justify-content-between">
+    <legend>Config : </legend>
+    <!-- add delete function -->
+    <button type="button" class="btn btn-danger" style="margin-right:20px ;" >Delete</button>
+</div>
+    <br>
+    <label> Content :</label>
+    <input type = "text" name="content" class="form-control" ngModel>
+    <br>
+    <!-- <div class="form-inline"> -->
+        <div class="form-group">
+    <div formArrayName = "headers" >
+        <fieldset ngModelGroup="Headers">
+        <div class="d-flex justify-content-between">
+        <div >Headers :</div>
+        <div><button class = "btn btn-primary">Add</button></div>
+        </div>
+
+    
+
+        <label>TemplateName : </label>
+        <input type = "text" id = "tempName" name = "tempName" ngModel class="form-control">
+
+        
+        <label>Headers : </label>
+        <input type = "text" id = "headers" name ="headers"  ngModel class="form-control">
+    </fieldset>
+    </div>
+</div>
+<!-- </div> -->
+   
+    <!-- <div>Headers :</div>
+    <div><button class = "btn btn-primary">Add</button></div>
+    
+</div> -->
+
+   <!-- <div formArrayName = "headers">
+
+        <label>TemplateName : </label>
+        <input type = "text" id = "tempName" class="form-control">
+
+        
+        <label>Headers : </label>
+        <input type = "text" id = "headers" class="form-control">
+
+    </div>  -->
+<!-- </div>
+</div> -->
+</fieldset>
+
+</form>
+<!-- <pre>{{ staticForm.value | json }}</pre> -->
