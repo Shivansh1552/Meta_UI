@@ -6,7 +6,7 @@
   
         
       <br>
-      <div class="form-group">
+      <!-- <div class="form-group"> -->
         <div class="d-flex justify-content-between">
           <div><label for="name">Name</label></div>
           <div style="width:50% ;"><input type="text" class="form-control" id="name" required ngModel placeholder="Enter Name"  name="name"></div>
@@ -26,11 +26,17 @@
 
           <div class="d-flex justify-content-center">
 
-            <button type="button" class="btn btn-primary" style="margin-right:20px ;" (click)="AddStaticContent()">Add Overview</button>
+            <button type="button" class="btn btn-primary" style="margin-right:20px ;" id="sc" (click)="AddStaticContent($event)">Add Overview</button>
+           
+            <!-- <button type="button" id="myBtn" class="btn btn-primary" style="margin-right:20px ;">Add Overview</button>
+            <script>
+             var element = document.getElementById("myBtn");
+             element.addEventListener("click", AddStaticContent);
+            </script> -->
       
-            <button type="button" class="btn btn-primary" style="margin-right:20px;" (click)="AddApiDisplay()">Add Setup</button>
+            <button type="button" class="btn btn-primary" style="margin-right:20px;" id="api" (click)="AddApiDisplay()">Add Setup</button>
       
-            <button type="button" class="btn btn-primary" (click)="AddStaticPageEntry()">Add Parameters</button>
+            <button type="button" class="btn btn-primary" id="spe" (click)="AddStaticPageEntry()">Add Parameters</button>
       
           </div>
         <!-- <app-static-page-entry>
@@ -53,11 +59,11 @@
         <button type="button" class="btn btn-primary" style="margin-right:20px ;">Reset</button>
         <button type="button" class="btn btn-primary">Finish</button> -->
       </div>
-    <div>
-        <!-- <app-static-content>
+    <!-- <div>
+        <app-static-content>
 
-        </app-static-content> -->
+        </app-static-content>
         
-    </div>
+    </div> -->
 </div>
 

@@ -1,4 +1,5 @@
-import { Component, OnInit, NgModule, ViewChild, Type, ComponentFactoryResolver,ViewContainerRef, ComponentRef } from '@angular/core';
+import { Component, OnInit, NgModule, ViewChild, Type, ComponentFactoryResolver,ViewContainerRef, ComponentRef, ElementRef, Input } from '@angular/core';
+import { ControlContainer, NgForm } from '@angular/forms';
 
 import { ApiDisplayComponent } from './api-display/api-display.component';
 
@@ -15,11 +16,15 @@ import { StaticPageEntryComponent } from './static-page-entry/static-page-entry.
 
   templateUrl: './steps-config.component.html',
 
-  styleUrls: ['./steps-config.component.css']
+  styleUrls: ['./steps-config.component.css'],
+
+  viewProviders: [ { provide: ControlContainer, useExisting: NgForm } ]
 
 })
 
 export class StepsConfigComponent implements OnInit {
+
+  @Input() myForm!: ElementRef;
 
   // getParentApi(): ParentComponentApi {
   //   return {
@@ -53,8 +58,11 @@ export class StepsConfigComponent implements OnInit {
 
  
 
- AddStaticContent() {
-
+ AddStaticContent(event:any) {
+  // console.log(event.target.id);
+     //console.log(event.count);
+      const cnt=event.count;
+     
    this.ref = this.vcr.createComponent(StaticContentComponent)
 
  }
@@ -71,6 +79,7 @@ export class StepsConfigComponent implements OnInit {
 
 AddStaticPageEntry() {
 
+ 
   this.ref2 = this.vcr.createComponent(StaticPageEntryComponent)
 
 }

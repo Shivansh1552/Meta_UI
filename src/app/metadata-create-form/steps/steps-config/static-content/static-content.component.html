@@ -1,19 +1,19 @@
 <!-- <p>static-content works!</p> -->
-<form class="form-group">
-    <fieldset ngModelGroup = "config">
+<div class="form-group" viewContainerRef>
+    <!-- <fieldset ngModelGroup = "config"> -->
         <div class="d-flex justify-content-between">
     <legend>Config : </legend>
     <!-- add delete function -->
-    <button type="button" class="btn btn-danger" style="margin-right:20px ;" >Delete</button>
+    <!-- <button type="button" class="btn btn-danger" style="margin-right:20px ;" >Delete</button> -->
 </div>
     <br>
     <label> Content :</label>
-    <input type = "text" name="content" class="form-control" ngModel>
+    <input type = "text" id="content"  class="form-control" required ngModel name="content">
     <br>
     <!-- <div class="form-inline"> -->
         <div class="form-group">
     <div formArrayName = "headers" >
-        <fieldset ngModelGroup="Headers">
+        <!-- <fieldset ngModelGroup="Headers"> -->
         <div class="d-flex justify-content-between">
         <div >Headers :</div>
         <div><button class = "btn btn-primary">Add</button></div>
@@ -22,12 +22,12 @@
     
 
         <label>TemplateName : </label>
-        <input type = "text" id = "tempName" name = "tempName" ngModel class="form-control">
+        <input type = "text" class="form-control" id = "tempName"  required  ngModel placeholder="Enter TemplateName" name = "tempName"> 
 
         
         <label>Headers : </label>
-        <input type = "text" id = "headers" name ="headers"  ngModel class="form-control">
-    </fieldset>
+        <input type = "text" class="form-control" id = "headers"   required ngModel placeholder="Enter Headers" name ="headers">
+    <!-- </fieldset> -->
     </div>
 </div>
 <!-- </div> -->
@@ -49,7 +49,7 @@
     </div>  -->
 <!-- </div>
 </div> -->
-</fieldset>
+<!-- </fieldset> -->
 
-</form>
+</div>
 <!-- <pre>{{ staticForm.value | json }}</pre> -->

@@ -1,5 +1,5 @@
 import { style } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IMetadata, metadataBody } from '../metadata';
 import { MetadataService } from '../metadata.service';
@@ -12,6 +12,7 @@ import { v4 as uuid } from 'uuid';
   styleUrls: ['./metadata-form.component.css']
 })
 export class MetadataFormComponent {
+  @ViewChild('viewContainerRef') myForm!: any;
    public pageTitle = 'form';
    metadata: IMetadata = new IMetadata();
   
@@ -32,10 +33,8 @@ export class MetadataFormComponent {
   console.log(obj);
 
  }
- 
  onSubmit(myForm: any) {
-     
-  const obj={
+  const obj: IMetadata={
          id: myForm.id,
         //id: parseInt('uuid()',10),
         metadata:
@@ -48,11 +47,50 @@ export class MetadataFormComponent {
             
             section:
             {
-              description:myForm.desc,
               name : myForm.name,
-              title :myForm.title
-             }
+              title :myForm.title,
+              description:myForm.desc,
+          
+                staticconfig: {
+                  content: myForm.content,
+                  templateName: myForm.tempName,
+                  headers: myForm.headers,
+                }
+              
+             
+            //  ApiDisplayConfig:
+            //  {
+            //      hint: string,
+            //      name: string,
+            //      title : string,
+            
+            //      placeholder : string,
+            //      type: string,
+            //      testConfiguration: boolean,
+            //       testApi: ConnectionItem,
+      
+            //       ddLabel: string,
+                
+            //       transferFieldKey: string,
+      
+            //       sourceApi: SourceApi
+            //       {
+            //         path:string,
+            //         idField:string,
+            //         labelField:string
+            //       }
+            //      displayItems: DisplayItem
+            //      {
+            //       fieldName: string,
+            //       label: string,
+            //       secure: boolean
+            //      }
+            //  }
+             
+            
+             
             }
+          }
          }
     
    this.save(obj);

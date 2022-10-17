@@ -14,6 +14,7 @@ import { GetDataByIdComponent } from './get-data-by-id/get-data-by-id.component'
 import { FormsModule } from '@angular/forms';
 import { StepsComponent } from './metadata-create-form/steps/steps.component';
 import { StepsConfigComponent } from './metadata-create-form/steps/steps-config/steps-config.component';
+import { StaticContentComponent } from './metadata-create-form/steps/steps-config/static-content/static-content.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { StepsConfigComponent } from './metadata-create-form/steps/steps-config/
     GetDataComponent,
     GetDataByIdComponent,
     StepsComponent,
-    StepsConfigComponent
+    StepsConfigComponent,
+    StaticContentComponent
   ],
   imports: [
     BrowserModule,
