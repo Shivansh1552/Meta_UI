@@ -1,4 +1,4 @@
 export interface HeaderConfig{
-    templateName : String;
-    headerString : String ;
+    templateName : string;
+    headerString : string ;
 }

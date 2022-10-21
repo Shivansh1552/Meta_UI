@@ -11,10 +11,12 @@ import { AddMetadataComponent } from './add-metadata/add-metadata.component';
 import { GetDataComponent } from './get-data/get-data.component';
 import { GetDataByIdComponent } from './get-data-by-id/get-data-by-id.component';
 
+import {MaterialExampleModule} from '../app/material.module';
 import { FormsModule } from '@angular/forms';
 import { StepsComponent } from './metadata-create-form/steps/steps.component';
 import { StepsConfigComponent } from './metadata-create-form/steps/steps-config/steps-config.component';
 import { StaticContentComponent } from './metadata-create-form/steps/steps-config/static-content/static-content.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { StaticContentComponent } from './metadata-create-form/steps/steps-confi
     StaticContentComponent
   ],
   imports: [
+    MaterialExampleModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
@@ -39,7 +42,8 @@ import { StaticContentComponent } from './metadata-create-form/steps/steps-confi
       { path: 'getData', component: GetDataComponent },
       { path: 'getData/:id', component: GetDataByIdComponent }
     ]),
-    MetadataModule
+    MetadataModule,
+    BrowserAnimationsModule
   ],
   bootstrap: [AppComponent]
 })

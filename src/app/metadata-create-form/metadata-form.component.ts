@@ -1,9 +1,10 @@
 import { style } from '@angular/animations';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { IMetadata, metadataBody } from '../metadata';
+import { HeadersConfig, IMetadata, metadataBody, StaticConfig } from '../metadata';
 import { MetadataService } from '../metadata.service';
-import { v4 as uuid } from 'uuid';
+import { stringify, v4 as uuid } from 'uuid';
+import { HeaderConfig } from '../Models/static-content/header-config.model';
 
 
 @Component({
@@ -14,8 +15,14 @@ import { v4 as uuid } from 'uuid';
 export class MetadataFormComponent {
   @ViewChild('viewContainerRef') myForm!: any;
    public pageTitle = 'form';
-   metadata: IMetadata = new IMetadata();
+   panelOpenState = false;
+ 
   
+   metadata: IMetadata = new IMetadata();
+   
+   public headers: HeadersConfig[] = [];
+
+  // public staticConfig: StaticConfig;
   
   submitted = false;
 
@@ -24,16 +31,33 @@ export class MetadataFormComponent {
   ngOnInit() {
    
   }
+
+  removeInput(index:any) {
+    this.headers.splice(index,1)
+  }
+
+  addInput() {
+    this.headers.push({
+      templateName: '',
+      headerString: ''
+    });
+  }
+
   save(obj: any) {
 
    this.metaService.addMetadata(obj)
    .subscribe((result) => console.log(result));
    
-  // this.metadata = new IMetadata();
   console.log(obj);
 
  }
  onSubmit(myForm: any) {
+
+    this.headers.push({
+        templateName: myForm.templateName,
+        headerString: myForm.headerString,
+  })
+  
   const obj: IMetadata={
          id: myForm.id,
         //id: parseInt('uuid()',10),
@@ -44,51 +68,65 @@ export class MetadataFormComponent {
             metadataName: myForm.metadataName,
             ipackName: myForm.ipackName,
             version: myForm.version,
-            
+        
             section:
             {
               name : myForm.name,
               title :myForm.title,
               description:myForm.desc,
           
-                staticconfig: {
+              staticConfig: {
                   content: myForm.content,
-                  templateName: myForm.tempName,
-                  headers: myForm.headers,
-                }
+                  header: this.headers,
+              },
               
+              apiDisplayConfig:
+              {
+                   name1:  myForm.name1,
+                   title1 :  myForm.title1,
+                   description1 :  myForm.descrition1,
+                  
+                   rows : {
+                    
+                    hint:  myForm.hint,
+
+                    name: myForm.name2,
+
+                    placeholder : myForm.placeholder,
+
+                    type:  myForm.type,
+                      
+                    validations:{
+                                type: myForm.type1,
+                                value: myForm.value,
+                          }
+ 
+                      },
+       
+                   ddLabel: myForm.ddLabel,
+                 
+                   transferFieldKey: myForm.tFK,
+       
+                   sourceApi:  {
+                                path: myForm.path,
+                                authtype: myForm.authType,
+                                idField: myForm.idField,
+           
+                               labelField: myForm.LabelField,
+                          },
              
-            //  ApiDisplayConfig:
-            //  {
-            //      hint: string,
-            //      name: string,
-            //      title : string,
-            
-            //      placeholder : string,
-            //      type: string,
-            //      testConfiguration: boolean,
-            //       testApi: ConnectionItem,
-      
-            //       ddLabel: string,
-                
-            //       transferFieldKey: string,
-      
-            //       sourceApi: SourceApi
-            //       {
-            //         path:string,
-            //         idField:string,
-            //         labelField:string
-            //       }
-            //      displayItems: DisplayItem
-            //      {
-            //       fieldName: string,
-            //       label: string,
-            //       secure: boolean
-            //      }
-            //  }
-             
-            
-             
+                  displayItems:  {
+                                     fieldName:  myForm.fieldName,
+                                     label:  myForm.label,
+                                     secure:  myForm.secure,
+                                },
+           
+                 testConfigure: myForm.TestConfigure,
+              
+                  testApi:{
+                           authtype: myForm.authType1,
+                          }
+            }
             }
           }
          }
@@ -96,6 +134,14 @@ export class MetadataFormComponent {
    this.save(obj);
   
  }
+
+
+
+
+
+
+
+ 
 
   // save(id:any,obj: any) {
 

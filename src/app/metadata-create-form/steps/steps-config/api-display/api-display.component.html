@@ -1,13 +1,30 @@
 
 <!-- <p>static-content works!</p> -->
-<form class = "form-group config">
+<div class="form-group" #viewContainerRef>
+    <br>
+    <div class="d-flex justify-content-between">
+        <div><label >Name</label></div>
+        <div style="width:50% ;"><input type="text" class="form-control" id="name1" required ngModel placeholder="Enter Name"  name="name1"></div>
+      </div>
+      <br>
+        <div class="d-flex justify-content-between">
+        <div><label >Title</label></div>
+        <div style="width:50% ;"><input type="text" class="form-control" id="title1" required ngModel placeholder="Enter Title"  name="title1"></div>
+        </div>
+      <br>
+      <div class="d-flex justify-content-between">
+        <div><label >Description</label></div>
+        <div  style ="width : 50%;"><input type="text" class="form-control" id="description1" required ngModel  placeholder="Enter Description" name="description1"></div>
+      </div>
+      <br>
 
-    <label> Name :</label>
+    <!-- <label> Name :</label>
     <input placeholder="Name" class="form-control" id = "name">
     <br>
     <label> Title :</label>
     <input placeholder="Title" class="form-control" id = "title">
-    <br>
+    <br> -->
+    
     <div>
         
      
@@ -16,26 +33,27 @@
             <div><button class = "btn btn-primary">Add</button></div>
             </div>
  
-        <form formArrayName = "rows">
+        <div formArrayName = "rows">
             
-             <fieldset ngModelGroup = "Input">
+             <!-- <div ngModelGroup = "Input"> -->
+                <div>
                 <legend>Input : </legend>
                 <div>
                     <label>hint :</label>
-                    <input type="text" class="form-control" placeholder="hint" id = "hint">
+                    <input type="text" class="form-control"  id = "hint"   required ngModel placeholder="hint" name="hint">
                 </div>
                 <div>
                     <label>name :</label>
-                    <input type="text" class="form-control" placeholder="name" id = "name">
+                    <input type="text" class="form-control"  id = "name2"  required ngModel placeholder="name"  name="name2">
                 </div>
                 <div>
                     <label>placeholder :</label>
-                    <input type="text" class="form-control" placeholder="placeholder" id = "placeholder">
+                    <input type="text" class="form-control" id = "placeholder" required ngModel placeholder="placeholder"  name="placeholder">
                 </div>
 
                 <div>
                     <label>type :</label>
-                    <input type="text" class="form-control" placeholder="type" id = "type">
+                    <input type="text" class="form-control" id = "type" required ngModel placeholder="type"  name="type">
                 </div>
                 <div>
                     <div class = "d-flex justify-content-between">
@@ -44,60 +62,57 @@
                     </div>
                     <div formArrayName = "validations">
                     <label>type :</label>
-                    <input type="text" class="form-control" placeholder="type" id = "type">
+                    <input type="text" class="form-control" id = "type1" required ngModel placeholder="type"  name="type1">
 
                     <label>value :</label>
-                    <input type="text" class="form-control" placeholder="value" id = "value">
+                    <input type="text" class="form-control" id = "value" required ngModel placeholder="value"  name="value">
                     </div>
                 </div>
                 
 
-             </fieldset>
+             </div>
 
-        </form>
+            </div>
         </div>
         <br>
         <label> ddLabel :</label>
-        <input placeholder="ddLabel" class="form-control" type="text" id="ddLabel">
+        <input placeholder="ddLabel" class="form-control" type="text"  id="ddLabel" required ngModel  name="ddLabel">
         <br>
         <label>transferFieldKey : </label>
-        <input type = "text" class="form-control" placeholder="tFK" id = "tFK">
+        <input type = "text" class="form-control"  id = "tFK" required ngModel placeholder="tFK"  name="tFK">
         <br>
         <div>
             <div>sourceApi :</div>
-            <fieldset ngModelGroup ="sourceApi">
+            <div >
                 <label> Path :</label>
-                <input placeholder="Path" class="form-control " id = "path">
+                <input placeholder="Path"    class="form-control " id = "path"    required ngModel      name="path">
                 <label> AuthType :</label>
-                <input placeholder="AuthType" class="form-control" id = "authType">
+                <input placeholder="AuthType" class="form-control" id = "authType"    required ngModel   name="authType">
                 <label> IdField :</label>
-                <input placeholder="IdField" class="form-control" id = "idField">
+                <input placeholder="IdField"   class="form-control" id = "idField"     required ngModel  name="idField">
                 <label> LabelField> </label>
-                <input placeholder="LabelField" class="form-control" id = "LabelField">
+                <input placeholder="LabelField" class="form-control" id = "LabelField" required ngModel   name="LabelField">
                 
-            </fieldset>
+            </div>
         </div>
 
         <br>
 
         <div>
         
-
-    
-
             <div class = "d-flex justify-content-between">
                 <div> DisplayItems</div>
                 <div><button class = "btn btn-primary">Add</button></div>
             </div>
      
-            <form formArrayName = "displayItems">
+            <div formArrayName = "displayItems">
                     <div>
                         <label>FieldName :</label>
-                        <input type="text" class="form-control" placeholder="FieldName" id = "fieldName">
+                        <input type="text" class="form-control" id = "fieldName" required ngModel placeholder="FieldName"  name="fieldName">
                     </div>
                     <div>
                         <label>Label :</label>
-                        <input type="text" class="form-control" placeholder="Label" id = "label">
+                        <input type="text" class="form-control" id = "label" required ngModel placeholder="Label"  name="label">
                     </div>
                     <div>
                         <label>secure :</label>
@@ -105,7 +120,7 @@
                     </div>
     
         
-                </form>
+            </div>
             </div>
 
             <br>
@@ -113,13 +128,13 @@
             <input type="checkbox"  checked>
 
             <div>Test API :</div>
-            <form class="form-group">
+            <div class="form-group">
                 
                 <label>
                     AuthType :
                 </label>
-                <input class="form-control" type="text">
-            </form>
+                <input class="form-control" type="text" id="authType1" required ngModel  name="authType1">
+            </div>
         
         
-    </form>
+    </div>

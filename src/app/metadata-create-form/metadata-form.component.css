@@ -8,3 +8,7 @@
     margin-top: 40px;
     padding: 20px;
 }
+
+.scc-headers > .scc-header-inner > .mat-card {
+    padding: 0px;
+}

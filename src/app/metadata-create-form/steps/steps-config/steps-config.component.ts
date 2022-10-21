@@ -59,17 +59,14 @@ export class StepsConfigComponent implements OnInit {
  
 
  AddStaticContent(event:any) {
-  // console.log(event.target.id);
-     //console.log(event.count);
-      const cnt=event.count;
-     
+  
    this.ref = this.vcr.createComponent(StaticContentComponent)
 
  }
 
 
 
- AddApiDisplay() {
+ AddApiDisplay(event:any) {
 
   this.ref1 = this.vcr.createComponent(ApiDisplayComponent)
 
@@ -77,7 +74,7 @@ export class StepsConfigComponent implements OnInit {
 
 
 
-AddStaticPageEntry() {
+AddStaticPageEntry(event:any) {
 
  
   this.ref2 = this.vcr.createComponent(StaticPageEntryComponent)
